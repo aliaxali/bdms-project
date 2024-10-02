@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <%- include('partials/header') %>
+
+    <!-- Main Content Section -->
+    <main class="main">
+        <div class="main-layout">
+            <!-- Left Empty or Contentless Division -->
+            <div class="left-side">
+                <!-- This can remain empty or include an image/logo etc. -->
+            </div>
+            <!-- Right Side with Content -->
+            <div class="right-side">
+                <!-- <img src="tanishi_23_05_01-removebg-preview.png" alt="xyz">  -->
+                <!-- <img src="tanishi_23_05_01.jpg" alt="hello"> -->
+                <h1>DONATE<br>BLOOD<br>SAVE<br>LIFE</h1>
+                <p class="description">Blood donation is one of the most significant contributions a person can make towards the society. Your donation can save lives!</p>
+                <div class="btn">
+                    <a href="donor.ejs" class="cta-button">Donate Blood</a>
+                    <a href="receiver.ejs" class="cta-button">Need Blood</a>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+     <!-- General Information Section -->
+<!-- General Information Section -->
+<section class="general-info">
+    <div class="container">
+        <h2>Welcome to Blood Donation Management System</h2>
+
+        <div class="card-container">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <h3>Blood Groups</h3>
+                <p>There are 4 main blood groups: A, B, AB, and O. The blood types are further classified by the Rh factor (Positive or Negative).</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-card">
+                <h3>Universal Donor/Recipient</h3>
+                <p><strong>Universal Donor</strong>: O Negative (Can donate to all blood types). <br><strong>Universal Recipient</strong>: AB Positive (Can receive from all blood types).</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="info-card">
+                <h3>Eligibility Criteria</h3>
+                <ul>
+                    <li>Age: 18-65 years old.</li>
+                    <li>Weight: Minimum of 50 kg.</li>
+                    <li>Good health and free from major illness.</li>
+                    <li>Hemoglobin level: At least 12.5 g/dL for males and 12.0 g/dL for females.</li>
+                </ul>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="info-card">
+                <h3>Donation Process</h3>
+                <ol>
+                    <li>Registration with basic details.</li>
+                    <li>Health check: Blood pressure, hemoglobin levels, etc.</li>
+                    <li>Whole blood donation takes 10-15 minutes.</li>
+                    <li>Post-donation rest and refreshments.</li>
+                </ol>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="info-card">
+                <h3>Benefits of Donation</h3>
+                <ul>
+                    <li>Saves lives: One donation can save up to three people.</li>
+                    <li>Improves heart health by maintaining iron levels.</li>
+                    <li>Free health screening.</li>
+                </ul>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="info-card">
+                <h3>Donation Frequency</h3>
+                <ul>
+                    <li>Whole Blood: Every 56 days (8 weeks).</li>
+                    <li>Platelets: Every 7 days, up to 24 times a year.</li>
+                    <li>Plasma: Every 28 days, up to 13 times a year.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Us Section -->
+<section class="about-us">
+    <div class="container">
+        <h2>About Us</h2>
+        
+        <p>
+            Welcome to the Blood Donation Management System, a platform designed to connect blood donors with recipients efficiently and safely. Our mission is to simplify the process of finding blood donors and ensuring that those in need get access to life-saving blood in a timely manner. Without a unified system, hospitals often face significant delays in securing blood for urgent transfusions, leading to tragic consequences, especially for patients undergoing surgeries or emergency treatments. Locating the right donor, particularly for rare blood types, can take hours or even days, which could mean the difference between life and death. Our system addresses these issues by providing a centralized database of blood donors and recipients, allowing hospitals and patients to request blood from eligible donors in real-time, dramatically reducing the time spent searching for blood. We prioritize safety and accuracy, ensuring that all registered donors meet the necessary health criteria for donation. By offering quick and easy access to a network of verified blood donors, real-time notifications to donors when blood is needed, and advanced filtering options for finding donors with specific blood types, we ensure a seamless process for safe and reliable blood donations. By bridging the gap between donors and recipients, we make blood transfusions more accessible and save lives, aiming to organize and streamline the process while reducing the risks hospitals face when running low on blood supplies. 
+            Join us in our mission to create a community where blood donation is a way of life, and every eligible individual contributes to saving lives.
+        </p>
+    </div>
+</section>
+
+
+    <!-- Footer Section -->
+    <%- include('partials/footer') %>
+</body>
+</html>

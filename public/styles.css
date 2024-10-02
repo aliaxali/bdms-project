@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:"Poppins", sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    background: #f15f6d; /* NPM Red */
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.header nav ul li {
+    margin : 0 15px;
+}
+
+.header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-layout {
+    display: flex;  /* Flexbox layout to create left and right sections */
+    height: 600px;
+    background-image: url('heart-shape-stethoscope-arrangement.jpg');  /* Adjust the path as needed */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.left-side {
+    flex: 1;  /* Take up the left portion (empty or with content like logo) */
+    background-color: rgba(255, 255, 255, 0);  /* Transparent or any background */
+}
+
+.right-side {
+    flex: 1;  /* Take up the right portion */
+    display: flex;
+    flex-direction: column;  /* Stack content vertically */
+    justify-content: center;  /* Center content vertically */
+    align-items: center;  /* Align content to the start (left) */
+    text-align: center;
+    padding: 0 50px;  /* Add padding on the right side */
+    color: rgb(85, 6, 6);
+}
+
+.right-side img{
+    height: 500px;
+    width: 500px;
+}
+
+
+.right-side h1 {
+    font-size: 50px;
+    
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-right: 10px;
+}
+
+.btn {
+    display: flex;
+    margin-top: 20px;
+}
+
+.cta-button {
+    color: white;
+    background: rgb(131, 4, 4);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    text-align: center;
+    border: none;
+}
+
+.cta-button:hover {
+    background: #45a049;
+}
+
+.description {
+    font-size: 18px;
+    margin-top: 20px;
+    max-width: 400px;
+}
+
+.footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.footer h3 {
+    margin: 10px 0;
+    font-size: 1.5rem; /* Adjust size as needed */
+    color: #333; /* Change color if needed */
+    font-weight:normal ;
+}
+
+.footer p {
+    color: #333;
+    margin-top: 20px;
+}
+
+.contact-info {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    margin: 0 15px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #c21325;
+}
+
+.contact-info i {
+    font-size: 30px;
+    vertical-align: middle;
+}
+.general-info {
+    padding: 40px 0;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.general-info .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.general-info h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #c21325;
+}
+
+/* Card Layout */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.info-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 0 1 calc(33.333% - 20px); /* Makes 3 cards fit in a row */
+    box-sizing: border-box;
+}
+
+.info-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.info-card p,
+.info-card ul,
+.info-card ol {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.info-card ul,
+.info-card ol {
+    padding-left: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .info-card {
+        flex: 0 1 calc(50% - 20px); /* On smaller screens, 2 cards per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .info-card {
+        flex: 0 1 100%; /* On mobile, 1 card per row */
+    }
+}
+.about-us {
+    padding: 60px 0;
+    background-color: #fff; /* White background for contrast */
+    color: #333;
+    text-align: center;
+}
+
+.about-us .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.about-us h2 {
+    font-size: 36px;
+    color: #c21325; /* Main red color for heading */
+    margin-bottom: 30px;
+}
+
+.about-us p {
+    
+    font-size: 18px;
+    line-height: 1.8;
+    /* margin-bottom: 20px; */
+    color: #555;
+}
+
+.about-us p:last-child {
+    margin-bottom: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
