@@ -1,0 +1,99 @@
+/* loginstyle.css */
+
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+/* Reset styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Light background for the form */
+}
+
+/* Login Container */
+.login-container {
+    width: 400px; /* Fixed width for the login form */
+    margin: 100px auto; /* Center the form vertically and horizontally */
+    padding: 20px; /* Padding around the content */
+    background-color: white; /* White background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center the text */
+}
+
+h2 {
+    color: #c21325; /* Main red color for the heading */
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px; /* Space between input fields */
+    text-align: left; /* Align labels to the left */
+}
+
+label {
+    display: block; /* Block level for labels */
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: 500; /* Medium weight for better visibility */
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%; /* Full width input */
+    padding: 10px; /* Padding for comfort */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size for inputs */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #c21325; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Checkbox Styles */
+.input-group input[type="checkbox"] {
+    margin-right: 5px; /* Space between checkbox and label */
+}
+
+/* Submit Button Styles */
+button {
+    width: 100%; /* Full width button */
+    padding: 10px; /* Padding for comfort */
+    background-color: #c21325; /* Main red color for button */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 18px; /* Font size for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s; /* Smooth background transition */
+}
+
+button:hover {
+    background-color: #f15f6d; /* Lighter red on hover */
+}
+
+/* Links Styles */
+a {
+    color: #333; /* Dark gray color for the link */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #c21325; /* Change color on hover */
+}
+
+/* Additional Text Styles */
+p {
+    margin-top: 15px; /* Space above paragraphs */
+    color: #555; /* Dark gray for text */
+}
+

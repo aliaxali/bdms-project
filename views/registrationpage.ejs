@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Registration - Blood Donation Management System</title>
+    
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="/css/registrationstyles.css">
+</head>
+<body>
+    <div class="registration-container">
+        <h2>Donor Registration</h2>
+        <form id="registration-form" action="register-donor.php" method="POST" enctype="multipart/form-data">
+            <!-- Personal Information -->
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="input-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <!-- Address Details -->
+            <div class="input-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" placeholder="Enter your residential address" required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="Enter your state" required>
+            </div>
+            <div class="input-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Enter your city" required>
+            </div>
+            <div class="input-group">
+                <label for="district">District</label>
+                <input type="text" id="district" name="district" placeholder="Enter your district" required>
+            </div>
+            <div class="input-group">
+                <label for="pin-code">Pin Code</label>
+                <input type="text" id="pin-code" name="pin-code" placeholder="Enter your pin code" required>
+            </div>
+
+            <!-- Blood Donation Information -->
+            <div class="input-group">
+                <label for="blood-group">Blood Group</label>
+                <select id="blood-group" name="blood-group" required>
+                    <option value="">Select your blood group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="last-donation">Last Donation Date</label>
+                <input type="date" id="last-donation" name="last-donation">
+            </div>
+
+            <!-- Health Information -->
+            <div class="input-group">
+                <label for="weight">Weight (in kg)</label>
+                <input type="number" id="weight" name="weight" placeholder="Enter your weight" required>
+            </div>
+            <div class="input-group">
+                <label for="medical-conditions">Medical Conditions (if any)</label>
+                <textarea id="medical-conditions" name="medical-conditions" placeholder="Mention any underlying medical conditions"></textarea>
+            </div>
+
+            <!-- File Upload for Blood Type Result -->
+            <div class="input-group">
+                <label for="blood-group-report">Upload Blood Group Report</label>
+                <input type="file" id="blood-group-report" name="blood-group-report" accept=".jpg, .jpeg, .png, .pdf" required>
+                <small>Accepts: .jpg, .jpeg, .png, .pdf</small>
+            </div>
+
+            <!-- Credentials -->
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required>
+            </div>
+
+            <!-- Terms and Submit -->
+            <div class="input-group">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">I agree to the <a href="termsandconditions.html">terms and conditions</a></label>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/js/registrationscripts.js"></script>
+</body>
+</html>
