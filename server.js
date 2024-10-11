@@ -278,7 +278,7 @@ app.post('/forgot-password', async (req, res) => {
 
     try {
         const verification = await client.verify.v2.services(serviceSid);
-            .verification
+            .verifications
             .create({ to: phone, channel: 'sms' });
 
         console.log(`OTP sent to ${phone}: ${verification.sid}`);
