@@ -1,0 +1,176 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Centered Message Styling */
+.message {
+    display: flex;
+    justify-content: center;  /* Center the message horizontally */
+    align-items: center;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #f1f1f1;
+    color: brown;
+    border-radius: 5px;
+    font-size: 18px;
+     /* Adjust width based on your layout */
+    text-align: center;
+     /* z-index: 1000; Ensure it's on top of other elements */
+    position: relative; /* Ensure correct positioning */
+}
+
+.success-message {
+    color: green;
+}
+
+.error-message {
+    color: red;
+}
+
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+    display: block;
+}
+
+/* Logout Button */
+.logout-btn {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    size:50px ;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.logout-btn:hover {
+    background-color:black;
+}
+
+/* Main content */
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.update-btn {
+    background-color: #ff5733;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-btn:hover {
+    background-color: #ff7733;
+}
+
+/* Profile Section */
+.info-section {
+    margin-top: 10px;
+}
+
+.info-section label {
+    font-weight: bold;
+}
+
+.info-section input, .info-section textarea {
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* General Button Styling */
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+.footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.footer h3 {
+    margin: 10px 0;
+    font-size: 1.5rem; /* Adjust size as needed */
+    color: #333; /* Change color if needed */
+    font-weight:normal ;
+}
+
+.footer p {
+    color: #333;
+    margin-top: 20px;
+}
+
+.contact-info {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    margin: 0 15px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #c21325;
+}
+
+.contact-info i {
+    font-size: 30px;
+    vertical-align: middle;
+}

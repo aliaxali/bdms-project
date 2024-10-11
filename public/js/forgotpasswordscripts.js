@@ -1,6 +1,3 @@
-// forgotpasswordscripts.js
-
-// Function to handle the form submission
 document.getElementById("forgot-password-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -15,9 +12,20 @@ document.getElementById("forgot-password-form").addEventListener("submit", funct
         return;
     }
 
-    // Simulate sending an OTP (you would normally make an API call here)
-    alert(`An OTP has been sent to ${phoneNumber}.`);
-
-    // Optionally, redirect to the enter OTP page
-    // window.location.href = "enterotp.html";
+    // Send OTP request to server
+    fetch('/forgot-password', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ phone: phoneNumber }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        window.location.href = "/otp-verification"; // Redirect to OTP verification page
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 });

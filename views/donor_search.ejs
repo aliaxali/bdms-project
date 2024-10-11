@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,41 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blood Donation Management - Home</title>
     <!-- Link to the external CSS file -->
-    <link rel="stylesheet" href="css/styles1.css">
+    <link rel="stylesheet" href="/css/donor_search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="js/app.js"></script>
 </head>
 <body>
     <!-- Header Section -->
-    <header>
-        <h1>Blood Donation Management System</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="request.html">Request Blood</a>
-            <a href="manage-requests.html">Manage Requests</a>
-        </nav>
-    </header>
+    <%- include('partials/header') %>
+    
+<!-- Search Section -->
+<section class="search-section">
+    <h2>Search for Available Blood Donors</h2>
+    <form id="search-form" >
+        <select id="blood-type" name="bloodType"  required>
+            <option value="">Select your blood group </option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+        <input type="text" id="location" name="location" placeholder="Enter City, District, or State"  required>
+        <button onclick="searchBlood(event)">Search</button>
+    </form>
+</section>
 
-    <!-- Search Section -->
-    <section class="search-section">
-        <h2>Search for Available Blood Types</h2>
-        <input type="text" id="blood-type" placeholder="Enter Blood Type (e.g., A+, B-)">
-        <input type="text" id="location" placeholder="Enter Location">
-        <button onclick="searchBlood()">Search</button>
-    </section>
+
 
     <!-- Results Section -->
     <section class="results-section">
-        <h2>Available Blood Types</h2>
+       
         <div id="results">
             <!-- Results will be dynamically loaded here -->
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Blood Donation Management System</p>
-    </footer>
+    <%- include('partials/footer') %>
 
     <!-- JavaScript -->
-    <script src="js/app.js"></script>
+    
 </body>
 </html>

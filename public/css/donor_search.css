@@ -1,0 +1,190 @@
+/* General styling */
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex; /* Enable flexbox for footer positioning */
+    flex-direction: column; /* Stack elements vertically */
+    min-height: 100vh; /* Make the body at least the height of the viewport */
+}
+
+/* Header styles */
+
+.header {
+    background: #f15f6d; /* NPM Red */
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.navbar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.header nav ul li {
+    margin : 0 15px;
+}
+
+.header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* Search section styles */
+.search-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.search-section select,
+.search-section input,
+.search-section button {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Results section styles */
+.results-section {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff; /* Light background for contrast */
+    border: 1px solid #fff; /* Border for definition */
+    border-radius: 5px; /* Rounded corners */
+    flex: 1; /* Allow the section to grow and push footer down */
+}
+
+#results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align the cards */
+    gap: 20px; /* Space between cards */
+    margin-top: 20px;
+}
+.results-section h2 {
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+    width: 100%; /* Ensure it spans the full width */
+    display: block; /* Ensure it's treated as a block element */
+    clear: both; /* Ensure it clears any floats */
+}
+
+/* Donor profile (card) styles */
+.donor-profile {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #f4a3a3;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    vertical-align: top; 
+    transition: transform 0.3s;
+    position: relative;/* Ensure cards stay at the same vertical alignment */
+}
+
+
+
+/* Red top layer */
+.donor-profile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px; /* Height of the red layer */
+    background-color: #e63946; /* Red color */
+    border-top-left-radius: 8px; /* Match card corners */
+    border-top-right-radius: 8px; /* Match card corners */
+}
+
+.donor-profile:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.donor-profile h3 {
+    margin-top: 30px; /* Adjust to fit below the red layer */
+    color: #333;
+}
+
+.donor-profile p {
+    margin: 5px 0;
+    color: black; /* Black text for content */
+}
+
+.donor-profile .blood-group {
+    font-weight: bold;
+    color: #e63946; /* Distinct color for blood group */
+    font-size: 1.2em; /* Increase size for emphasis */
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin-top: 10px;
+}
+
+/* Footer styles */
+
+.footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.footer h3 {
+    margin: 10px 0;
+    font-size: 1.5rem; /* Adjust size as needed */
+    color: #333; /* Change color if needed */
+    font-weight:normal ;
+}
+
+.footer p {
+    color: #333;
+    margin-top: 20px;
+}
+
+.contact-info {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    margin: 0 15px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #c21325;
+}
+
+.contact-info i {
+    font-size: 30px;
+    vertical-align: middle;
+}

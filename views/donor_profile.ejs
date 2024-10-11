@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Profile</title>
+    <link rel="stylesheet" href="/css/donor_profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="message"> 
+    <!-- Show profile completion prompt on first login -->
+    <% if (firstLogin) { %>
+        <h2 class="success-message"><%= success %></h2>
+    <% } %>
+
+    <!-- Show success message after successful login -->
+    <% if (success) { %>
+       <h2 class="success-message"><%= success %></h2>
+    <% } %>
+
+    <% if (error) { %>
+        <h2 class="error-message"><%= error %></h2>
+     <% } %>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <ul>
+        <li><a href="/donor_profile">My Profile</a></li>
+        <li><a href="/notifications">Notifications</a></li>
+        <li><a href="/donation_history">Donation History</a></li>
+        <li><a href="/medical_history">Medical History</a></li>
+        <li><a href="/logout">Logout</a></li> <!-- Logout link styled as a button -->
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <div class="header">
+        <h1>Donor Profile</h1>
+        <a href="/logout" class="logout-btn">Logout</a>
+    </div>
+
+    <!-- Profile Information Section -->
+    <section id="profile-info" class="info-section">
+        <h2>
+        Profile Information <span><%= donor.profileCompleted ? '✓ Profile Completed' : '✗ Profile Incomplete' %></span></h2>
+        <form id="profileForm" action="/update-profile" method="POST">
+            <input type="hidden" name="donorId" value="<%= donor._id %>">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= donor.name %>" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<%= donor.email %>" required><br>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" value="<%= donor.phone %>" required><br>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required><%= donor.address %></textarea><br>
+
+            <button type="submit" class="update-btn">Update Profile</button>
+        </form>
+    </section>
+
+    <!-- Availability Management -->
+    <section id="availability-management" class="circle-section">
+        <h2>Manage Availability for Donation</h2>
+        <div class="availability-section">
+            <p>Are you available for upcoming donations?</p>
+            <form id="availabilityForm" action="/update-availability" method="POST">
+                <input type="hidden" name="donorId" value="<%= donor._id %>">
+                <label>
+                    <input type="radio" name="availability" value="yes" <%= donor.availability === 'yes' ? 'checked' : '' %>> Yes
+                </label>
+                <label>
+                    <input type="radio" name="availability" value="no" <%= donor.availability === 'no' ? 'checked' : '' %>> No
+                </label>
+                <br>
+                <button type="submit" class="availability-btn">Update Availability</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Notifications Section -->
+    <section id="notifications" class="info-section">
+        <h2>Notifications</h2>
+        <div id="notification-list">
+            <p>No new notifications.</p>
+        </div>
+    </section>
+
+    <!-- Donation History Section -->
+    <section id="donation-history" class="info-section">
+        <h2>Donation History</h2>
+        <div id="history-list">
+            <p>No donations made yet.</p>
+        </div>
+    </section>
+    <%- include('partials/footer') %>
+</div>
+</body>
+</html>  

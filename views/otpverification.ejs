@@ -4,28 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTP Verification - Blood Donation Management System</title>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Link to CSS -->
-    <link rel="stylesheet" href="otpverificationstyles.css">
+    <link rel="stylesheet" href="/css/otpverificationstyles.css">
 </head>
 <body>
+    <%- include('partials/header') %>
     <div class="otp-verification-container">
+        <% if (message) { %>
+            <p class="success-message"><%= message %></p>
+        <% } %>
         <h2>OTP Verification</h2>
         <p>We have sent an OTP to your mobile number. Please enter it below to verify.</p>
 
-        <form id="otp-verification-form" action="verify-otp.php" method="POST">
+        <form id="otp-verification-form" action="/verify-otp" method="POST">
             <div class="input-group">
-                <label for="otp">Enter OTP</label>
+                <input type="hidden" id="phone" name="phone" value="<%= phone %>"> <!-- Phone number persisted -->
+                  <label for="otp">Enter OTP</label>
                 <input type="text" id="otp" name="otp" placeholder="Enter the OTP" required>
             </div>
 
             <button type="submit">Verify OTP</button>
         </form>
 
-        <p><a href="forgot-password-mobile.html">Resend OTP</a></p>
+        <p><a href="/forgot-password">Resend OTP</a></p>
     </div>
 
     <!-- Link to JavaScript -->
+    <%- include('partials/footer') %>
     <script src="otpverificationscripts.js"></script>
 </body>
 </html>
