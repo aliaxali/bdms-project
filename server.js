@@ -275,7 +275,7 @@ app.post('/forgot-password', async (req, res) => {
     }
 
     try {
-        const verification = await client.verify.v2.services(twilioServiceSid);
+        const verification = await client.verify.v2.services(TWILIO_SERVICE_SID);
             .verifications
             .create({ to: phone, channel: 'sms' });
 
@@ -294,7 +294,7 @@ app.post('/verify-otp', async (req, res) => {
 
     try {
         // Call Twilio to verify the OTP
-        const verification_check = await client.verify.v2.services('VA9616225836a0cf153e9e8d937dbb49fe')
+        const verification_check = await client.verify.v2.services(TWILIO_SERVICE_SID)
             .verificationChecks
             .create({ to: formattedPhone, code: otp });
 
