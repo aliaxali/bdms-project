@@ -11,6 +11,7 @@ const Donor = require('./models/Donor');
 const bcrypt =require('bcrypt')
 const session = require('express-session')
 const saltRounds = 10;  // For bcrypt hashing
+require('dotenv').config();
 
 
 app.set('view engine','ejs')
@@ -246,8 +247,9 @@ app.get('/logout', (req, res) => {
 const twilio = require('twilio');
 
 // Twilio configuration (replace with your credentials)
-const accountSid = 'AC2eeef6fbdeadcd1c63250fc0e43cff1f'; // Your Twilio Account SID
-const authToken = '6448e0bf66b03239c2a3ecb72a736483'; // Your Twilio Auth Token
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+ // Your Twilio Auth Token
 const client = new twilio(accountSid, authToken);
 
 
