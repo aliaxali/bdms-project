@@ -244,9 +244,13 @@ app.get('/logout', (req, res) => {
         res.redirect('/login');
     });
 });
+
+
+
+
 const twilio = require('twilio');
 
-// Twilio configuration (replace with your credentials)
+
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const serviceSid = process.env.TWILIO_SERVICE_SID; // Ensure this is correctly set
