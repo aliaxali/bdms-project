@@ -249,6 +249,8 @@ const twilio = require('twilio');
 // Twilio configuration (replace with your credentials)
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
+const serviceSid = process.env.TWILIO_SERVICE_SID; // Ensure this is correctly set
+
  // Your Twilio Auth Token
 const client = new twilio(accountSid, authToken);
 
@@ -275,8 +277,8 @@ app.post('/forgot-password', async (req, res) => {
     }
 
     try {
-        const verification = await client.verify.v2.services(TWILIO_SERVICE_SID);
-            .verifications
+        const verification = await client.verify.v2.services(serviceSid);
+            .verification
             .create({ to: phone, channel: 'sms' });
 
         console.log(`OTP sent to ${phone}: ${verification.sid}`);
@@ -294,7 +296,7 @@ app.post('/verify-otp', async (req, res) => {
 
     try {
         // Call Twilio to verify the OTP
-        const verification_check = await client.verify.v2.services(TWILIO_SERVICE_SID)
+        const verification_check = await client.verify.v2.services(serviceSid)
             .verificationChecks
             .create({ to: formattedPhone, code: otp });
 
