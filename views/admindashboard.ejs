@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Blood Donation Management System</title>
+    <link rel="stylesheet" href="/css/admindashboardstyles.css"> <!-- Link to CSS file -->
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- Sidebar Navigation -->
+        <nav>
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="/statistics">Home</a></li> <!-- Changed link to statistics page -->
+                <li><a href="/manageusers">Manage Users</a></li> <!-- Updated to HTML file -->
+                <li><a href="/managedonations">Manage Donations</a></li> <!-- Updated to HTML file -->
+                <li><a href="/database">Database Details</a></li> <!-- Updated to HTML file -->
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <header>
+                <h1>Welcome to the Blood Donation Management System</h1>
+            </header>
+
+            <!-- Statistics Section -->
+            <section class="stats">
+                <div class="stat-card">
+                    <h3>Total Donors</h3>
+                    <p id="total-donors">120</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Donations</h3>
+                    <p id="total-donations">300</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending Requests</h3>
+                    <p id="pending-requests">5</p>
+                </div>
+            </section>
+
+            <!-- Manage Users Section -->
+            <section class="manage-section">
+                <h2>Manage Users</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>john@example.com</td>
+                            <td>Active</td>
+                            <td>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td>Inactive</td>
+                            <td>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                        <!-- More rows can be added here -->
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="/js/admindashboardscripts.js"></script> <!-- Link to JavaScript file -->
+</body>
+
+</html>
+
+
+
+
+
+

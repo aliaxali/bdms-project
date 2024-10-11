@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donations Overview - Blood Donation Management System</title>
+    <link rel="stylesheet" href="/css/databasestyles.css"> <!-- Link to CSS file -->
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav>
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="/admindashboard">Home</a></li>
+                <li><a href="/manageusers">Manage Users</a></li>
+                <li><a href="/managedonations" class="active">Manage Donations</a></li>
+                <li><a href="/statistics">Statistics</a></li>
+                <li><a href="logout.php">Logout</a></li> <!-- Removed Request Management -->
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <header>
+                <h1>Donations Overview</h1>
+            </header>
+
+            <!-- Donations Table Section -->
+            <section class="donations-section">
+                <h2>All Donations</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Donation ID</th>
+                            <th>Donor Name</th>
+                            <th>Receiver Name</th>
+                            <th>Blood Group</th>
+                            <th>Donation Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="donation-data">
+                        <!-- Data will be populated here from the database -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="/js/databasescripts.js"></script> <!-- Link to JavaScript file -->
+</body>
+
+</html>
+
