@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users - Blood Donation Management System</title>
+    <link rel="stylesheet" href="/css/manageusersstyles.css">
+</head>
+<body>
+    <div class="manage-users-container">
+        <header>
+            <h1>Manage Users</h1>
+        </header>
+
+        <!-- Search and Filter Section -->
+        <div class="search-filter">
+            <input type="text" id="searchInput" placeholder="Search by name or email">
+            <button onclick="filterUsers()">Search</button>
+        </div>
+
+        <!-- Table to display users -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                <!-- User rows will be dynamically inserted here -->
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>Active</td>
+                    <td>
+                        <button class="edit-btn" onclick="editUser(1)">Edit</button>
+                        <button class="delete-btn" onclick="deleteUser(1)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button onclick="prevPage()">Previous</button>
+            <span id="page-info">Page 1</span>
+            <button onclick="nextPage()">Next</button>
+        </div>
+
+        <!-- Modal for Editing User Info -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2>Edit User</h2>
+                <form id="editUserForm">
+                    <label for="editName">Name</label>
+                    <input type="text" id="editName" required>
+                    <label for="editEmail">Email</label>
+                    <input type="email" id="editEmail" required>
+                    <label for="editStatus">Status</label>
+                    <select id="editStatus">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                    <button type="submit" onclick="updateUser()">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/manageusersscripts.js"></script>
+</body>
+</html>

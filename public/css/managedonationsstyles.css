@@ -1,0 +1,102 @@
+/* managedonationsstyles.css */
+
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+/* Reset styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+/* Manage Donations Container */
+.manage-donations-container {
+    width: 80%; /* Container width */
+    margin: 50px auto; /* Centered */
+    padding: 20px; /* Padding for content */
+    background-color: white; /* White background for content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center the text */
+}
+
+h1 {
+    color: #c21325; /* Main red color for the heading */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+/* Add Donation Button */
+#add-donation-btn {
+    background-color: #c21325; /* Main red color for button */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding for comfort */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s; /* Smooth background transition */
+    margin-bottom: 20px; /* Space below button */
+}
+
+#add-donation-btn:hover {
+    background-color: #f15f6d; /* Lighter red on hover */
+}
+
+/* Table Styles */
+table {
+    width: 100%; /* Full width table */
+    border-collapse: collapse; /* Remove space between borders */
+    margin-top: 20px; /* Space above table */
+}
+
+thead {
+    background-color: #c21325; /* Header background color */
+    color: white; /* Header text color */
+}
+
+th, td {
+    padding: 10px; /* Padding for table cells */
+    text-align: left; /* Left align text */
+    border: 1px solid #ddd; /* Light border */
+}
+
+th {
+    font-weight: 500; /* Medium weight for headers */
+}
+
+td {
+    color: #555; /* Dark gray for table data */
+}
+
+/* Button Styles for Actions */
+button {
+    background-color: #c21325; /* Main red color for action buttons */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Padding for comfort */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s; /* Smooth background transition */
+}
+
+button:hover {
+    background-color: #f15f6d; /* Lighter red on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .manage-donations-container {
+        width: 95%; /* Wider container on smaller screens */
+    }
+
+    table {
+        font-size: 14px; /* Smaller font size for tables on smaller screens */
+    }
+}
