@@ -12,14 +12,22 @@ const bcrypt =require('bcrypt')
 const session = require('express-session')
 const saltRounds = 10;  // For bcrypt hashing
 require('dotenv').config();
+const path=require('path')
 
+app.use(session({
+    secret: 'yourSecretKey',  // Change this secret for production
+    resave: false,
+    saveUninitialized: false,
+    
+    cookie: { maxAge: 10 * 60 * 1000 }
+  //  cookie: { maxAge: 120000 }  // Cookie lasts for 1 minute
+}));
 
 app.set('view engine','ejs')
+app.set('views', path.join(__dirname, 'views'));
 app.get('/',(req,res)=>{
     res.render('index')
 })
-
-// Redirect to login page on "/donate-blood"
 
 //routes
 app.get('/login', (req, res) => {
@@ -46,21 +54,20 @@ app.get('/donor_search', (req, res) => {
     res.render('donor_search'); // Render login.ejs for the login page
 });
 
+const adminRoutes = require('./adminlog');
+app.use(adminRoutes);
 
+// Default route to serve the main login page (if needed)
+app.get('/', (req, res) => {
+    res.redirect('/admin/login');  // Redirect to the admin login page
+});
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
 // Setup express-session
-app.use(session({
-    secret: 'yourSecretKey',  // Change this secret for production
-    resave: false,
-    saveUninitialized: false,
-    
-    cookie: { maxAge: 10 * 60 * 1000 }
-  //  cookie: { maxAge: 120000 }  // Cookie lasts for 1 minute
-}));
+
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/bloodDonationDB', {
@@ -251,12 +258,12 @@ app.get('/logout', (req, res) => {
 const twilio = require('twilio');
 
 
-// const accountSid = process.env.TWILIO_ACCOUNT_SID;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-// const serviceSid = process.env.TWILIO_SERVICE_SID; // Ensure this is correctly set
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const serviceSid = process.env.TWILIO_SERVICE_SID;
 
  // Your Twilio Auth Token
-const client = new twilio(accountSid, authToken);
+const client = new twilio(accountSid, authToken);b 
 
 
     
@@ -276,14 +283,14 @@ app.post('/forgot-password', async (req, res) => {
     console.log(`Phone number received for OTP: ${phone}`);
 
     // Ensure the phone number starts with '+'
-    if (!phone.startsWith('+')) {
+    if (!phone.startsWith('+91')) {
         return res.status(400).send('Invalid phone number format. Please include the country code.');
     }
 
     try {
         const verification = await client.verify.v2.services(serviceSid)
             .verifications
-            .create({ to: phone, channel: 'sms' });
+            .create({ to: phone, channel: 'sms'});
 
         console.log(`OTP sent to ${phone}: ${verification.sid}`);
         res.redirect(`/otp-verification?phone=${phone}&message=OTP sent successfully.`);

@@ -1,82 +1,75 @@
-// app.js
 const express = require('express');
-const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-const bodyParser = require('body-parser');
 const Admin = require('./models/Admin');
-require('dotenv').config();
-const path = require('path');
+const router = express.Router();
 
-const app = express();
+// Middleware for handling body parsing and sessions if not already in server.js
+router.use(express.urlencoded({ extended: true }));
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public')); // Serve static files
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true
-}));
-
-// Set view engine
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-// MongoDB connection
-mongoose.connect('mongodb://localhost:27017/adminid', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.error('MongoDB connection error:', err));
-
-// Serve login page
-app.get('/', (req, res) => {
-    res.render('login'); // Render login.ejs
+// Login Page
+router.get('/admin/login', (req, res) => {
+    res.render('adminLogin', { error: null }); // Pass null as the default for error
 });
 
-// Handle login
-app.post('/login', async (req, res) => {
+// Handle Admin Login
+router.post('/admin/login', async (req, res) => {
     const { username, password } = req.body;
 
     try {
         const admin = await Admin.findOne({ username });
         if (!admin) {
-            return res.send('<div class="alert alert-danger">Invalid Username or Password!</div>');
+            return res.render('adminLogin', { error: 'Invalid Username or Password!' });
         }
 
         const isMatch = await bcrypt.compare(password, admin.password);
         if (!isMatch) {
-            return res.send('<div class="alert alert-danger">Invalid Username or Password!</div>');
+            return res.render('adminLogin', { error: 'Invalid Username or Password!' });
         }
 
         // Successful login
         req.session.loggedin = true;
         req.session.username = admin.username;
-        res.redirect('/dashboard');
+        res.redirect('/admin/dashboard');
     } catch (error) {
         console.error('Login error:', error);
-        res.send('<div class="alert alert-danger">An error occurred. Please try again later.</div>');
+        res.render('adminLogin', { error: 'An error occurred. Please try again later.' });
     }
 });
 
-// Dashboard route
-app.get('/dashboard', (req, res) => {
+// Admin Dashboard Route
+router.get('/admin/dashboard', (req, res) => {
     if (req.session.loggedin) {
-        res.send(`Welcome, ${req.session.username}! <a href="/logout">Logout</a>`);
+        res.render('adminDashboard', { username: req.session.username });
     } else {
-        res.send('Please login to view this page!');
+        res.redirect('/admin/login');
     }
 });
 
-// Logout route
-app.get('/logout', (req, res) => {
+// Admin statistics page
+router.get('/statistics', (req, res) => {
+    res.render('statistics'); // Make sure the EJS file is in the views/admin folder
+});
+
+// Manage Users page
+router.get('/manageusers', (req, res) => {
+    res.render('manageusers'); // EJS file for managing users
+});
+
+// Manage Donations page
+router.get('/managedonations', (req, res) => {
+    res.render('managedonations'); // EJS file for managing donations
+});
+
+// Database Details page
+router.get('/database', (req, res) => {
+    res.render('database'); // EJS file for database details
+});
+
+// Handle Logout
+router.get('/admin/logout', (req, res) => {
     req.session.destroy();
-    res.redirect('/');
+    res.redirect('/admin/login');
 });
 
-// Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
-
-
+module.exports = router;
