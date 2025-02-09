@@ -14,8 +14,12 @@
 
         <!-- Search and Filter Section -->
         <div class="search-filter">
-            <input type="text" id="searchInput" placeholder="Search by name or email">
-            <button onclick="filterUsers()">Search</button>
+            <section class="search-section">
+                <form id="searchForm">
+                    <input type="text" id="search" placeholder="Search by name or email" required>
+                    <button type="submit">Search</button>
+                </form>
+            </section>
         </div>
 
         <!-- Table to display users -->
@@ -25,22 +29,32 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Status</th>
+                    <th>Active</th>
+                    <th>City</th>
+                    <th>District</th>
+                    <th>State</th>
+                    <th>Blood Group</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="userTableBody">
                 <!-- User rows will be dynamically inserted here -->
-                <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                    <td>Active</td>
-                    <td>
-                        <button class="edit-btn" onclick="editUser(1)">Edit</button>
-                        <button class="delete-btn" onclick="deleteUser(1)">Delete</button>
-                    </td>
-                </tr>
+                <% donors.forEach(donor => { %>
+                    <tr id="user-<%= donor._id %>">
+                        <td><%= donor._id %></td>
+                        <td><%= donor.name %></td>
+                        <td><%= donor.email %></td>
+                        <td><%= donor.availability %></td>
+                        <td><%= donor.city %></td>
+                        <td><%= donor.district %></td>
+                        <td><%= donor.state %></td>
+                        <td><%= donor.bloodGroup %></td>
+                        <td>
+                            
+                            <button class="delete-btn" onclick="deleteUser('<%= donor._id %>')">Delete</button>
+                        </td>
+                    </tr>
+                <% }) %>
             </tbody>
         </table>
 
@@ -66,6 +80,14 @@
                         <option value="Active">Active</option>
                         <option value="Inactive">Inactive</option>
                     </select>
+                    <label for="editCity">City</label>
+                    <input type="text" id="editCity" required>
+                    <label for="editDistrict">District</label>
+                    <input type="text" id="editDistrict" required>
+                    <label for="editState">State</label>
+                    <input type="text" id="editState" required>
+                    <label for="editBloodGroup">Blood Group</label>
+                    <input type="text" id="editBloodGroup" required>
                     <button type="submit" onclick="updateUser()">Save Changes</button>
                 </form>
             </div>

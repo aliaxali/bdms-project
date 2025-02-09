@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical History</title>
+    <link rel="stylesheet" href="/css/donor_profile.css">
+</head>
+<body>
+    <div class="main-content">
+        <h1>Medical History</h1>
+
+        <!-- Medical History Form -->
+        <form id="medicalForm">
+            <label for="conditions">Medical Conditions:</label>
+            <textarea id="conditions" name="conditions" placeholder="Enter any medical history here..."></textarea><br>
+            <button type="submit" class="update-btn">Update Medical History</button>
+        </form>
+        
+        <p id="message"></p> <!-- For displaying messages -->
+    </div>
+    
+    <div class="sidebar">
+        <ul>
+            <li><a href="/donor_profile">My Profile</a></li>
+            <li><a href="/notification">Notifications</a></li>
+            <li><a href="/donation_history">Donation History</a></li>
+            <li><a href="/medical_history">Medical History</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+
+    <script src="/js/medical_history.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

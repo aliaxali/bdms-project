@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <%- include('partials/header') %>
+        </div>
+    </div>
+    <section class="general-info" id="info">
+        <div class="container">
+            <h2>Welcome to Blood Donation Management System</h2>
+    
+            <div class="card-container">
+                <!-- Card 1 -->
+                <div class="info-card">
+                    <h3>Blood Groups</h3>
+                    <p>There are 4 main blood groups: A, B, AB, and O. The blood types are further classified by the Rh factor (Positive or Negative).</p>
+                </div>
+    
+                <!-- Card 2 -->
+                <div class="info-card">
+                    <h3>Universal Donor/Recipient</h3>
+                    <p><strong>Universal Donor</strong>: O Negative (Can donate to all blood types). <br><strong>Universal Recipient</strong>: AB Positive (Can receive from all blood types).</p>
+                </div>
+    
+                <!-- Card 3 -->
+                <div class="info-card">
+                    <h3>Eligibility Criteria</h3>
+                    <ul>
+                        <li>Age: 18-65 years old.</li>
+                        <li>Weight: Minimum of 50 kg.</li>
+                        <li>Good health and free from major illness.</li>
+                        <li>Hemoglobin level: At least 12.5 g/dL for males and 12.0 g/dL for females.</li>
+                    </ul>
+                </div>
+    
+                <!-- Card 4 -->
+                <div class="info-card">
+                    <h3>Donation Process</h3>
+                    <ol>
+                        <li>Registration with basic details.</li>
+                        <li>Health check: Blood pressure, hemoglobin levels, etc.</li>
+                        <li>Whole blood donation takes 10-15 minutes.</li>
+                        <li>Post-donation rest and refreshments.</li>
+                    </ol>
+                </div>
+    
+                <!-- Card 5 -->
+                <div class="info-card">
+                    <h3>Benefits of Donation</h3>
+                    <ul>
+                        <li>Saves lives: One donation can save up to three people.</li>
+                        <li>Improves heart health by maintaining iron levels.</li>
+                        <li>Free health screening.</li>
+                    </ul>
+                </div>
+    
+                <!-- Card 6 -->
+                <div class="info-card">
+                    <h3>Donation Frequency</h3>
+                    <ul>
+                        <li>Whole Blood: Every 56 days (8 weeks).</li>
+                        <li>Platelets: Every 7 days, up to 24 times a year.</li>
+                        <li>Plasma: Every 28 days, up to 13 times a year.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <%- include('partials/footer') %>
+</body>
+</html>

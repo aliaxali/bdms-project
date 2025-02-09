@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>.about-us {
+        padding: 60px 0;
+        background-color: #fff; /* White background for contrast */
+        color: #333;
+        text-align: center;
+    }
+    
+    .about-us .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .about-us h2 {
+        font-size: 36px;
+        color: #c21325; /* Main red color for heading */
+        margin-bottom: 30px;
+    }
+    
+    .about-us p {
+        
+        font-size: 18px;
+        line-height: 1.8;
+        /* margin-bottom: 20px; */
+        color: #555;
+    }
+    
+    .about-us p:last-child {
+        margin-bottom: 0;
+    }
+      /* Styles for the header */
+      .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f15f6d; /* NPM Red */
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .header .navbar {
+            display: flex;
+        }
+
+        .header .navbar ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            margin: 0;
+        }
+
+        .header .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .header .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+.footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.footer h3 {
+    margin: 10px 0;
+    font-size: 1.5rem; /* Adjust size as needed */
+    color: #333; /* Change color if needed */
+    font-weight:normal ;
+}
+
+.footer p {
+    color: #333;
+    margin-top: 20px;
+}
+
+.contact-info {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    margin: 0 15px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #c21325;
+}
+
+.contact-info i {
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <%- include('partials/header') %>
+        </div>
+    </div>
+    <section class="about-us" id="about-us">
+        <div class="container">
+            <h2>About Us</h2>
+            
+            <p>
+                Welcome to the Blood Donation Management System, a platform designed to connect blood donors with recipients efficiently and safely. Our mission is to simplify the process of finding blood donors and ensuring that those in need get access to life-saving blood in a timely manner. Without a unified system, hospitals often face significant delays in securing blood for urgent transfusions, leading to tragic consequences, especially for patients undergoing surgeries or emergency treatments. Locating the right donor, particularly for rare blood types, can take hours or even days, which could mean the difference between life and death. Our system addresses these issues by providing a centralized database of blood donors and recipients, allowing hospitals and patients to request blood from eligible donors in real-time, dramatically reducing the time spent searching for blood. We prioritize safety and accuracy, ensuring that all registered donors meet the necessary health criteria for donation. By offering quick and easy access to a network of verified blood donors and advanced filtering options for finding donors with specific blood types, we ensure a seamless process for safe and reliable blood donations. By bridging the gap between donors and recipients, we make blood transfusions more accessible and save lives, aiming to organize and streamline the process while reducing the risks hospitals face when running low on blood supplies. 
+               <br> Join us in our mission to create a community where blood donation is a way of life, and every eligible individual contributes to saving lives.
+            </p>
+        </div>
+    </section>
+     
+    <%- include('partials/footer') %>
+</body>
+</html>

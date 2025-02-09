@@ -12,49 +12,36 @@
 
     <div class="dashboard-container">
         <!-- Sidebar Navigation -->
-        <nav>
+        <nav class="sidebar">
             <h2>Admin Dashboard</h2>
             <ul>
-                <li><a href="/admindashboard">Home</a></li>
+                <!-- <li><a href="/admin/dashboard">Home</a></li> -->
                 <li><a href="/manageusers">Manage Users</a></li>
-                <li><a href="/managedonations">Manage Donations</a></li>
-                <li><a href="/statistics" class="active">Statistics</a></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="/admin/logout">Logout</a></li>
             </ul>
         </nav>
 
         <!-- Main Content -->
         <main>
             <header>
-                <h1>Statistics</h1>
+                <h1>Welcome to the Blood Donation Management System</h1>
             </header>
 
             <!-- Statistics Section -->
             <section class="stats-section">
                 <div class="stat-card">
                     <h3>Total Donors</h3>
-                    <p id="total-donors">120</p>
+                    <p id="total-donors"></p> <!-- Placeholder left empty for JS to populate -->
                 </div>
+                
                 <div class="stat-card">
-                    <h3>Total Donations</h3>
-                    <p id="total-donations">300</p>
+                    <h3>Active Donors</h3>
+                    <p id="active-donors"></p> <!-- Placeholder left empty for JS to populate -->
                 </div>
-                <div class="stat-card">
-                    <h3>Pending Requests</h3>
-                    <p id="pending-requests">5</p>
-                </div>
+
                 <div class="stat-card">
                     <h3>Blood Groups</h3>
-                    <ul id="blood-group-counts">
-                        <li>A+ : 50</li>
-                        <li>A- : 10</li>
-                        <li>B+ : 40</li>
-                        <li>B- : 15</li>
-                        <li>O+ : 60</li>
-                        <li>O- : 20</li>
-                        <li>AB+ : 5</li>
-                        <li>AB- : 3</li>
-                    </ul>
+                    <ul id="blood-group-counts"></ul> <!-- Placeholder left empty for JS to populate -->
                 </div>
             </section>
         </main>

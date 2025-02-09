@@ -19,9 +19,12 @@ const donorSchema = new mongoose.Schema({
     password: { type: String, required: true },
     profileCompleted: { type: Boolean, default: false },
     availability: { type: String, default: 'yes' },
+    status: { type: String, default: 'Active' } // New status field
 });
 
-// Create a Donor model
-const Donor = mongoose.model('Donor', donorSchema);
 
+
+
+
+const Donor = mongoose.model('Donor', donorSchema);
 module.exports = Donor;

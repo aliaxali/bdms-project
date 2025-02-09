@@ -13,6 +13,11 @@
     <div class="registration-container">
         <h2>Donor Registration</h2>
         <form id="registration-form" action="/register-donor" method="POST" enctype="multipart/form-data">
+               <!-- Terms and Submit -->
+               <div class="input-group">
+                
+                <input type="checkbox" id="consent" name="consent" required><label for="consent">I agree to the <a href="/termsandconditions">terms and conditions</a></label>
+            </div>
             <!-- Personal Information -->
             <div class="input-group">
                 <label for="name">Full Name</label>
@@ -86,7 +91,7 @@
             <!-- File Upload for Blood Type Result -->
             <div class="input-group">
                 <label for="blood-group-report">Upload Blood Group Report</label>
-                <input type="file" id="blood-group-report" name="blood-group-report" accept=".jpg, .jpeg, .png, .pdf" required>
+                <input type="file" id="blood-group-report" name="blood-group-report" accept=".jpg, .jpeg, .png, .pdf" >
                 <small>Accepts: .jpg, .jpeg, .png, .pdf</small>
             </div>
 
@@ -100,11 +105,7 @@
                 <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required>
             </div>
 
-            <!-- Terms and Submit -->
-            <div class="input-group">
-                <input type="checkbox" id="consent" name="consent" required>
-                <label for="consent">I agree to the <a href="termsandconditions.html">terms and conditions</a></label>
-            </div>
+         
 
             <button type="submit">Register</button>
         </form>

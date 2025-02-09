@@ -39,7 +39,9 @@ app.get('/login', (req, res) => {
 app.get('/donate-blood', (req, res) => {
     res.redirect('/login'); // Redirect to login page
 });
-
+app.get('/info', (req, res) => {
+    res.render('info'); // Redirect to login page
+});
 app.get('/registration', (req, res) => {
     res.render('registrationpage'); // Render login.ejs for the login page
 });
@@ -53,7 +55,21 @@ app.get('/forgotpassword', (req, res) => {
 app.get('/donor_search', (req, res) => {
     res.render('donor_search'); // Render login.ejs for the login page
 });
-
+app.get('/termsandconditions',(req,res) => {
+    res.render('termsandconditions')
+});
+app.get('/donation_history',(req,res) => {
+    res.render('donation_history');
+});
+app.get('/medical_history',(req,res) => {
+    res.render('medical_history');
+});
+app.get('/notification',(req,res) => {
+    res.render('notification');
+});
+app.get('/about',(req,res) => {
+    res.render('about');
+});
 const adminRoutes = require('./adminlog');
 app.use(adminRoutes);
 
@@ -206,7 +222,7 @@ app.get('/donor_profile', async (req, res) => {
 
 // Handle profile update
 app.post('/update-profile', async (req, res) => {
-    const { donorId, name, email, phone, address } = req.body;
+    const { donorId, name, email, phone, weight,address, medicalConditions,lastDonation } = req.body;
 
     try {
         // Update donor information
@@ -214,7 +230,10 @@ app.post('/update-profile', async (req, res) => {
             name,
             email,
             phone,
+            weight,
             address,
+            medicalConditions,
+            lastDonation,
             profileCompleted: true // Mark profile as completed
         });
 
@@ -258,12 +277,12 @@ app.get('/logout', (req, res) => {
 const twilio = require('twilio');
 
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const serviceSid = process.env.TWILIO_SERVICE_SID;
+const accountSid = 'AC2eeef6fbdeadcd1c63250fc0e43cff1f';
+const authToken = 'c0882cea7ac702b4d5a21ad30d02d95f'; 
+const serviceSid = 'VA94fc188019fca58e5c7afbf999683ec6';
 
  // Your Twilio Auth Token
-const client = new twilio(accountSid, authToken);b 
+const client = new twilio(accountSid, authToken);
 
 
     
@@ -399,6 +418,42 @@ app.get('/search', async (req, res) => {
         res.status(500).json({ message: 'An error occurred while searching for donors.' });
     }
 });
+
+// API to fetch medical history
+app.get('/api/medical_history', async (req, res) => {
+    try {
+        const donor = await Donor.findOne({}); // Modify this query to find the correct donor
+        res.json({ medicalConditions: donor.medicalConditions });
+    } catch (error) {
+        console.error('Error fetching medical history:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+app.put('/api/medical_history', async (req, res) => {
+    try {
+        const { donorId, medicalConditions } = req.body; // Extracting donorId and medicalConditions
+
+        // Validate the donorId
+        if (!mongoose.Types.ObjectId.isValid(donorId)) {
+            return res.status(400).send('Invalid donor ID'); // Handle invalid donor ID
+        }
+
+        const donor = await Donor.findById(donorId); // Find the donor by ID
+
+        if (!donor) {
+            return res.status(404).send('Donor not found'); // Handle case where donor does not exist
+        }
+
+        donor.medicalConditions = medicalConditions; // Update the medical conditions
+        await donor.save(); // Save changes to the database
+        res.status(200).send('Medical history updated successfully!');
+    } catch (error) {
+        console.error('Error updating medical history:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 
 app.use(express.static('public'))
 app.listen((port),() => {console.log(`Server running on Port :${port}`)})

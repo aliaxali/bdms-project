@@ -28,9 +28,9 @@
 <div class="sidebar">
     <ul>
         <li><a href="/donor_profile">My Profile</a></li>
-        <li><a href="/notifications">Notifications</a></li>
-        <li><a href="/donation_history">Donation History</a></li>
-        <li><a href="/medical_history">Medical History</a></li>
+        <!-- <li><a href="/notification">Notifications</a></li> -->
+        <!-- <li><a href="/donation_history">Donation History</a></li> -->
+        <!-- <li><a href="/medical_history">Medical History</a></li> -->
         <li><a href="/logout">Logout</a></li> <!-- Logout link styled as a button -->
     </ul>
 </div>
@@ -56,11 +56,21 @@
 
             <label for="phone">Phone:</label>
             <input type="text" id="phone" name="phone" value="<%= donor.phone %>" required><br>
+            
+            <label for="weight">Weight:</label>
+            <input type="text" id="weight" name="weight" value="<%= donor.weight %>" required><br>
 
             <label for="address">Address:</label>
             <textarea id="address" name="address" required><%= donor.address %></textarea><br>
+            
+            <label for="medicalConditions">Medical Condition:</label>
+            <textarea id="medicalConditions" name="medicalConditions" ><%= donor.medicalConditions %></textarea><br>
+            
+            <label for="lastDonation">Last Donation</label>
+            <input type="date" id="lastDonation" name="lastDonation" value="<%= donor.lastDonation ? donor.lastDonation.toISOString().split('T')[0] : '' %>" ><br>
 
             <button type="submit" class="update-btn">Update Profile</button>
+
         </form>
     </section>
 
@@ -83,21 +93,7 @@
         </div>
     </section>
 
-    <!-- Notifications Section -->
-    <section id="notifications" class="info-section">
-        <h2>Notifications</h2>
-        <div id="notification-list">
-            <p>No new notifications.</p>
-        </div>
-    </section>
 
-    <!-- Donation History Section -->
-    <section id="donation-history" class="info-section">
-        <h2>Donation History</h2>
-        <div id="history-list">
-            <p>No donations made yet.</p>
-        </div>
-    </section>
     <%- include('partials/footer') %>
 </div>
 </body>

@@ -4,61 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <link rel="stylesheet" href="/css/styles.css"> <!-- Your CSS file -->
+
     <style>
-        /* Example basic styles */
+        /* Styles for the header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f15f6d; /* NPM Red */
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .header .navbar {
+            display: flex;
+        }
+
+        .header .navbar ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            margin: 0;
+        }
+
+        .header .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .header .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Body and login container styling */
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
+            margin: 0;
             background-color: #f4f4f4;
+            padding-top: 100px; /* Offset for fixed header */
         }
+
         .login-container {
             background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            width: 300px;
-            padding-right: 40px;
+            padding: 50px;
+            padding-right: 70px;
+            width: 320px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        
+            margin-bottom: 150px;
         }
+
         .login-container h2 {
             text-align: center;
+            color: #333;
             margin-bottom: 20px;
         }
+
         .login-container input {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 12px;
+            margin: 8px 0;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 4px;
         }
+
         .login-container button {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: brown;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
+            font-size: 16px;
             cursor: pointer;
-            margin: 10px;
+            transition: background-color 0.3s;
+            margin-left: 10px;
         }
+
         .login-container button:hover {
             background-color: darkred;
         }
+
         .error-message {
             color: red;
             text-align: center;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    
+    <!-- Header Section -->
+    <div class="header">
+        <div class="navbar">
+            <%- include('partials/header') %>
+        </div>
+    </div>
+
+    <!-- Login Form Section -->
     <div class="login-container">
         <h2>Admin Login</h2>
         <% if (error) { %>
-            <p style="color: red;"><%= error %></p>
+            <p class="error-message"><%= error %></p>
         <% } %>
         <form action="/admin/login" method="POST">
             <input type="text" name="username" placeholder="Username" required>
