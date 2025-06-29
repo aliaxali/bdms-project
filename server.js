@@ -8,7 +8,7 @@ const bodyParser =require('body-parser')
 const multer = require('multer');
 const Donor = require('./models/Donor');
 
-const bcrypt =require('bcrypt')
+const bcrypt =require('bcryptjs')
 const session = require('express-session')
 const saltRounds = 10;  // For bcrypt hashing
 require('dotenv').config();

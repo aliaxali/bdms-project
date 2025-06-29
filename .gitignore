@@ -1,4 +1,3 @@
 # Ignore environment variables file
 .tmp.driveupload/
 .env
-.node_modules
