@@ -277,10 +277,9 @@ app.get('/logout', (req, res) => {
 const twilio = require('twilio');
 
 
-const accountSid = 'AC2eeef6fbdeadcd1c63250fc0e43cff1f';
-const authToken = 'c0882cea7ac702b4d5a21ad30d02d95f'; 
-const serviceSid = 'VA94fc188019fca58e5c7afbf999683ec6';
-
+const accountSid =process.env.accountSid
+const authToken =process.env.authToken
+const serviceSid =process.env.serviceSid
  // Your Twilio Auth Token
 const client = new twilio(accountSid, authToken);
 
