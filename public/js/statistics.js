@@ -1,6 +1,6 @@
 // statistics.js
 async function fetchStatistics() {
-    const response = await fetch('http://localhost:4000/api/statistics'); // Ensure this matches the server's endpoint
+    const response = await fetch('https://bdms-4rai.onrender.com/api/statistics'); // Ensure this matches the server's endpoint
     if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.statusText}`);
     }
