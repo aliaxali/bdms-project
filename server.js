@@ -93,6 +93,15 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("Connected to MongoDB"))
 .catch(err => console.log("Error connecting to MongoDB: ", err));
 
+//creating dir
+const fs = require('fs');
+
+
+const uploadDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
+
 //multer
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -138,7 +147,7 @@ app.post('/register-donor', upload.single('blood-group-report'), async (req, res
             lastDonation,
             weight,
             medicalConditions,
-            bloodGroupReport: req.file.path,  // Store file path for blood-group-report
+            bloodGroupReport:  req.file ? req.file.path : null,  // Store file path for blood-group-report
             password: hashedPassword,
             profileCompleted: false  // Set profile as incomplete initially
         });
