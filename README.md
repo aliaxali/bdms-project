@@ -4,7 +4,7 @@
 A full-stack web application designed to digitize and manage the process of blood donation—from donor registration to donation tracking and admin control. Built using **Node.js**, **Express**, **MongoDB**, and **EJS**, BDMS provides a seamless interface for both donors and administrators.
 
 🔗 **Live Demo:** [Visit BDMS on Render](https://bdms-4rai.onrender.com/)  
-*(Replace with your actual Render deployment link)*
+
 
 ---
 
